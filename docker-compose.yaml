@@ -1,0 +1,39 @@
+
+services:
+  bank-server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: bank-server
+    ports:
+      - "12300:8084"
+    environment:
+      PG_MAX_IDDLE: "30000"
+      PG_MAX_TIMEOUT: "2000"
+      SERVER_PORT: "8084"
+
+
+      
+    # depends_on:
+    #   - mysql-db
+    # env_file: .env
+
+  mysql-db:
+    image: mysql:9.3.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: "123"
+      MYSQL_DATABASE: dockerBankDb
+      MYSQL_USER: root
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+    # networks:
+    #   - appnet
+    ports:
+      - "10001:3306"
+# networks:
+#   appnet:
+#     driver: bridge
+volumes:
+  mysql-data:

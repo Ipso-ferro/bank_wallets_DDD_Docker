@@ -1,0 +1,26 @@
+{
+  "name": "walletddd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "ts-node -r dotenv/config server/server.ts",
+    "start": "node -r dotenv/config build/server/server.js",
+    "build": "rm -rf build && npx tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.13.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "dotenv": "^16.3.1",
+    "typescript": "^5.8.3"
+  }
+}
